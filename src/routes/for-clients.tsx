@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Section, SectionHeading, Eyebrow, CTASection } from "@/components/site/Primitives";
+import { ClientOnboardingFlow } from "@/components/site/OnboardingFlow";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { ProcessFlow } from "@/components/site/ProcessFlow";
 import { registerUrl } from "@/config/site";
@@ -237,11 +238,23 @@ function ForClients() {
         </div>
       </Section>
 
-      <Section tone="surface">
+      <Section tone="surface" id="get-started">
+        <SectionHeading
+          eyebrow="Onboarding"
+          title="Setting up as a client takes minutes"
+          description="No subscription and no charge until you approve a quote. Registration, profile and first brief are one continuous flow."
+        />
+        <div className="mt-14">
+          <ClientOnboardingFlow />
+        </div>
+      </Section>
+
+      <Section>
         <SectionHeading
           eyebrow="Getting started"
           title="Four steps from brief to completed order"
         />
+
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <div key={s.title} className="rounded-2xl border border-border bg-background p-6">
@@ -260,7 +273,8 @@ function ForClients() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="surface">
+
         <SectionHeading
           eyebrow="Order lifecycle"
           title="Exactly how your task is handled"
@@ -271,7 +285,8 @@ function ForClients() {
         </div>
       </Section>
 
-      <Section tone="surface">
+      <Section>
+
         <SectionHeading eyebrow="FAQ" title="Questions clients ask before their first order" />
         <div className="mx-auto mt-12 max-w-3xl">
           <Accordion type="single" collapsible className="w-full">

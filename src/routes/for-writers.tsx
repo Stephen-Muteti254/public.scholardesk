@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/accordion";
 import { Section, SectionHeading, Eyebrow, CTASection } from "@/components/site/Primitives";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
+import { WriterOnboardingFlow } from "@/components/site/OnboardingFlow";
 import { registerUrl } from "@/config/site";
 
 const title = "For Writers | Fair, Matched Academic Writing Work — Academic Hub";
@@ -55,7 +56,24 @@ export const Route = createFileRoute("/for-writers")({
           })),
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to become a writer on Academic Hub",
+          step: [
+            { "@type": "HowToStep", name: "Apply through the platform" },
+            { "@type": "HowToStep", name: "Academic Hub reviews experience and skills" },
+            { "@type": "HowToStep", name: "Application approved (or rejected with feedback)" },
+            { "@type": "HowToStep", name: "Writer pays the refundable activation deposit" },
+            { "@type": "HowToStep", name: "Academic Hub activates the account" },
+            { "@type": "HowToStep", name: "Writer completes their expertise profile" },
+          ],
+        }),
+      },
     ],
+
   }),
   component: ForWriters,
 });
@@ -96,8 +114,8 @@ const benefits = [
 const steps = [
   {
     icon: BadgeCheck,
-    title: "Apply and get verified",
-    body: "Submit your academic background, writing samples and subject specialisms. We verify credentials and assess a sample task.",
+    title: "Set your availability",
+    body: "Tell us the workload, turnaround windows and academic levels you want. You can adjust or pause this at any time.",
   },
   {
     icon: Gauge,
@@ -126,6 +144,23 @@ const expectations = [
 
 const faqs = [
   {
+    q: "How long does the application review take?",
+    a: "Most applications receive a decision within two to five business days. We verify credentials, review your writing samples and assess your subject depth, then email you a reasoned decision either way.",
+  },
+  {
+    q: "What is the activation deposit, and is it refundable?",
+    a: "Once your application is approved, a one-off activation deposit secures your writer account. It underwrites your commitment to accepted deadlines, is paid securely inside the platform, and is refundable in line with our writer terms. Nothing is charged before approval, and rejected applicants are never asked to pay.",
+  },
+  {
+    q: "What happens if my application is rejected?",
+    a: "You receive a clear explanation of what did not meet the required standard. No deposit is requested and nothing is charged. You are welcome to reapply once you can evidence the missing experience or provide stronger samples.",
+  },
+  {
+    q: "When can I start receiving assignments?",
+    a: "As soon as your account is activated and your profile is complete. Your disciplines, academic levels, citation styles and turnaround windows drive the matching, so completing that profile is what switches work on.",
+  },
+  {
+
     q: "How do I get assigned work?",
     a: "Once verified, tasks in your registered disciplines are routed to you based on your expertise, experience level, ratings and on-time record. You see the full brief and fee before accepting.",
   },
@@ -247,8 +282,22 @@ function ForWriters() {
         </div>
       </Section>
 
-      <Section tone="surface">
-        <SectionHeading eyebrow="Joining" title="From application to first assignment" />
+      <Section tone="surface" id="become-a-writer">
+        <SectionHeading
+          eyebrow="Becoming a writer"
+          title="How to join Academic Hub as a writer"
+          description="Onboarding is a defined sequence with a named owner at every stage — you always know who holds the next action and what the decision was."
+        />
+        <div className="mt-14">
+          <WriterOnboardingFlow />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          eyebrow="Once you are active"
+          title="From your first match to your first payout"
+        />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <div key={s.title} className="rounded-2xl border border-border bg-background p-6">
@@ -267,7 +316,9 @@ function ForWriters() {
         </div>
       </Section>
 
-      <Section>
+
+      <Section tone="surface">
+
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
@@ -289,7 +340,8 @@ function ForWriters() {
         </div>
       </Section>
 
-      <Section tone="surface">
+      <Section>
+
         <SectionHeading eyebrow="FAQ" title="What writers ask before applying" />
         <div className="mx-auto mt-12 max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
