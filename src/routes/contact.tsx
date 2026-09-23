@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Section, Eyebrow } from "@/components/site/Primitives";
+import { Section } from "@/components/site/Primitives";
 import { SITE } from "@/config/site";
 
-const title = "Contact Academic Hub | Talk to Our Support Team";
+const title = "Contact ScholarDesk | Talk to Our Support Team";
 const description =
-  "Questions about an order, matching, pricing or writing with us? Contact the Academic Hub team by email or through the form — support is available 24/7.";
+  "Questions about an order, matching, pricing or becoming an expert? Contact the ScholarDesk team by email or through the form. Support is available 24/7.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -23,8 +23,11 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
+      { property: "og:image", content: SITE.ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { name: "twitter:image", content: SITE.ogImage },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
     scripts: [
@@ -35,7 +38,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "ContactPage",
           name: title,
           description,
-          url: `${SITE.domain}/contact`,
+          url: "/contact",
         }),
       },
     ],
@@ -64,13 +67,12 @@ function Contact() {
       <section className="bg-hero">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="max-w-3xl space-y-5">
-            <Eyebrow>Contact</Eyebrow>
             <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
               Talk to a person before you commit
             </h1>
             <p className="text-lg text-muted-foreground">
-              Whether you are weighing up your first order or applying to write with us, our team
-              will answer straight — including when we are not the right fit.
+              Whether you are weighing up your first order or applying as an expert, our team
+              will answer straight, including when we are not the right fit.
             </p>
           </div>
         </div>
@@ -174,7 +176,7 @@ function Contact() {
               <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
                 <li>Active order issues: under 1 hour</li>
                 <li>General enquiries: within 24 hours</li>
-                <li>Writer applications: 2–3 business days</li>
+                <li>Expert applications: 2–3 business days</li>
               </ul>
             </div>
           </div>

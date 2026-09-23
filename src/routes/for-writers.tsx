@@ -20,14 +20,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Section, SectionHeading, Eyebrow, CTASection } from "@/components/site/Primitives";
+import { Section, SectionHeading, CTASection } from "@/components/site/Primitives";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
-import { WriterOnboardingFlow } from "@/components/site/OnboardingFlow";
-import { registerUrl } from "@/config/site";
+import { ExpertOnboardingFlow } from "@/components/site/OnboardingFlow";
+import { SITE, registerUrl } from "@/config/site";
 
-const title = "For Writers | Fair, Matched Academic Writing Work — Academic Hub";
+const title = "For Experts | Matched Academic & Professional Work | ScholarDesk";
 const description =
-  "Write in your own discipline, with payment secured before you start, clear briefs, protected scope and a performance record that raises the work you are offered. Apply to write with Academic Hub.";
+  "Apply as a ScholarDesk expert for matched academic and professional work, clear briefs, protected scope, secured payment and a performance record that grows with you.";
 
 export const Route = createFileRoute("/for-writers")({
   head: () => ({
@@ -39,8 +39,11 @@ export const Route = createFileRoute("/for-writers")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/for-writers" },
+      { property: "og:image", content: SITE.ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { name: "twitter:image", content: SITE.ogImage },
     ],
     links: [{ rel: "canonical", href: "/for-writers" }],
     scripts: [
@@ -61,21 +64,21 @@ export const Route = createFileRoute("/for-writers")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HowTo",
-          name: "How to become a writer on Academic Hub",
+          name: "How to become an expert on ScholarDesk",
           step: [
             { "@type": "HowToStep", name: "Apply through the platform" },
-            { "@type": "HowToStep", name: "Academic Hub reviews experience and skills" },
+            { "@type": "HowToStep", name: "ScholarDesk reviews experience and skills" },
             { "@type": "HowToStep", name: "Application approved (or rejected with feedback)" },
-            { "@type": "HowToStep", name: "Writer pays the refundable activation deposit" },
-            { "@type": "HowToStep", name: "Academic Hub activates the account" },
-            { "@type": "HowToStep", name: "Writer completes their expertise profile" },
+            { "@type": "HowToStep", name: "Expert pays the refundable activation deposit" },
+            { "@type": "HowToStep", name: "ScholarDesk activates the account" },
+            { "@type": "HowToStep", name: "Expert completes their expertise profile" },
           ],
         }),
       },
     ],
 
   }),
-  component: ForWriters,
+  component: ForExperts,
 });
 
 const benefits = [
@@ -86,8 +89,8 @@ const benefits = [
   },
   {
     icon: Wallet,
-    title: "Payment secured before you write a word",
-    body: "Clients fund the order up front. You can see the work is backed, and payout follows a predictable schedule after the client approves — no chasing invoices, no disappearing clients.",
+    title: "Payment secured before you begin",
+    body: "Customers fund the order up front. You can see the work is backed, and payout follows a predictable schedule after the customer approves. No chasing invoices, no disappearing customers.",
   },
   {
     icon: FileText,
@@ -102,7 +105,7 @@ const benefits = [
   {
     icon: TrendingUp,
     title: "A record that compounds",
-    body: "Quality ratings, on-time rate and subject depth build a profile that unlocks higher-value assignments and priority matching — your reputation stops resetting to zero.",
+    body: "Quality ratings, on-time rate and subject depth build a profile that unlocks higher-value assignments and priority matching, so your reputation stops resetting to zero.",
   },
   {
     icon: ShieldCheck,
@@ -130,26 +133,26 @@ const steps = [
   {
     icon: CalendarClock,
     title: "Deliver and get paid",
-    body: "Submit through the workspace, handle any in-scope revisions, and receive payout once the client marks the order complete.",
+    body: "Submit through the workspace, handle any in-scope revisions, and receive payout once the customer marks the order complete.",
   },
 ];
 
 const expectations = [
-  "Original work, written from scratch and properly cited",
+  "Original work, developed from scratch and properly cited",
   "Deadlines treated as commitments, with early flags if risk appears",
   "Professional, documented communication inside the order thread",
   "Willingness to revise in-scope work until the brief is met",
-  "Strict confidentiality around client identity and materials",
+  "Strict confidentiality around customer identity and materials",
 ];
 
 const faqs = [
   {
     q: "How long does the application review take?",
-    a: "Most applications receive a decision within two to five business days. We verify credentials, review your writing samples and assess your subject depth, then email you a reasoned decision either way.",
+    a: "Most applications receive a decision within two to five business days. We verify credentials, review your work samples and assess your subject depth, then email you a reasoned decision either way.",
   },
   {
     q: "What is the activation deposit, and is it refundable?",
-    a: "Once your application is approved, a one-off activation deposit secures your writer account. It underwrites your commitment to accepted deadlines, is paid securely inside the platform, and is refundable in line with our writer terms. Nothing is charged before approval, and rejected applicants are never asked to pay.",
+    a: "Once your application is approved, a one-off activation deposit secures your expert account. It underwrites your commitment to accepted deadlines, is paid securely inside the platform, and is refundable in line with our expert terms. Nothing is charged before approval, and rejected applicants are never asked to pay.",
   },
   {
     q: "What happens if my application is rejected?",
@@ -166,10 +169,10 @@ const faqs = [
   },
   {
     q: "When and how am I paid?",
-    a: "Client funds are held by the platform from the start of the order. After the client reviews and marks the order complete, your payout is queued on a predictable schedule.",
+    a: "Customer funds are held by the platform from the start of the order. After the customer reviews and marks the order complete, your payout is queued on a predictable schedule.",
   },
   {
-    q: "What happens if a client keeps requesting revisions?",
+    q: "What happens if a customer keeps requesting revisions?",
     a: "In-scope revisions against the original brief are part of the assignment. Requests that go beyond the agreed brief are treated as new work with additional payment, and our support team reviews any disagreement using the documented brief and message history.",
   },
   {
@@ -181,33 +184,31 @@ const faqs = [
     a: "Yes. You set your availability, preferred turnaround windows and subject scope, and you can decline any assignment before accepting it.",
   },
   {
-    q: "Is my identity shared with clients?",
-    a: "No. Clients see your verified expertise, experience and performance record — not your personal identity.",
+    q: "Is my identity shared with customers?",
+    a: "No. Customers see your verified expertise, experience and performance record, not your personal identity.",
   },
 ];
 
-function ForWriters() {
+function ForExperts() {
   return (
     <>
-      <section className="relative overflow-hidden bg-hero">
-        <div className="absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
+      <section className="relative overflow-hidden bg-surface">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div className="space-y-7">
-              <Eyebrow>For Writers</Eyebrow>
               <h1 className="text-4xl font-bold leading-[1.1] lg:text-5xl">
-                Write in your field.{" "}
+                Work in your field.{" "}
                 <span className="text-primary">Get paid on terms you can plan around.</span>
               </h1>
               <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-                No bidding wars, no unpaid sample tests, no vanished clients. Academic Hub matches
+                No bidding wars, no unpaid sample tests, no vanished customers. ScholarDesk matches
                 you with work in your own discipline, secures the payment before you start, and
                 turns every completed order into a record that raises what you are offered next.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" asChild>
                   <a href={registerUrl("writer")}>
-                    Apply to write <ArrowRight className="ml-2 h-4 w-4" />
+                    Apply as an expert <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
@@ -216,13 +217,38 @@ function ForWriters() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-background p-6 shadow-elegant">
+            <figure className="overflow-hidden rounded-2xl border border-border bg-background shadow-elegant">
+              <div className="grid min-h-[175px] grid-cols-2 bg-surface">
+                <img
+                  src="/images/writer-at-desk.jpg"
+                  alt="An independent expert working at a desk with reference books and a laptop"
+                  width={287}
+                  height={175}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-[175px] w-full object-cover object-center"
+                />
+                <div className="flex flex-col justify-center gap-4 px-5 text-sm">
+                  {[
+                    "Verified expertise",
+                    "Protected scope",
+                    "Secured payment",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 border-b border-border pb-3 last:border-0 last:pb-0">
+                      <BadgeCheck className="h-4 w-4 shrink-0 text-primary" />
+                      <span className="font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <figcaption className="p-6">
               <div className="flex items-center justify-between border-b border-border pb-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     New assignment offer
                   </p>
-                  <p className="text-base font-semibold">Systematic review — Nursing, MSc</p>
+                  <p className="text-base font-semibold">Systematic review, Nursing, MSc</p>
                 </div>
                 <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                   Matched to you
@@ -233,7 +259,7 @@ function ForWriters() {
                   ["Fee", "Visible before you accept"],
                   ["Deadline", "7 days, checkpoint at day 3"],
                   ["Brief", "Rubric + 12 sources attached"],
-                  ["Payment", "Already funded by client"],
+                  ["Payment", "Already funded by customer"],
                 ].map(([k, v]) => (
                   <div key={k} className="rounded-lg bg-surface p-4">
                     <dt className="text-xs uppercase tracking-widest text-muted-foreground">{k}</dt>
@@ -245,16 +271,16 @@ function ForWriters() {
                 <BookOpen className="h-4 w-4 text-primary" />
                 Matched because: Nursing · MSc level · APA 7 · 4.9 rating
               </div>
-            </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
       <Section tone="surface">
         <SectionHeading
-          eyebrow="The difference"
-          title="What freelance academic work looked like before — and what it looks like here"
-          description="Every one of these was a reason good writers left the field. Fixing them is the reason Academic Hub is a managed platform rather than a listings board."
+          title="What independent expert work looked like before, and what it looks like here"
+          description="Every one of these was a reason good experts left the field. Fixing them is the reason ScholarDesk is a managed platform rather than a listings board."
         />
         <div className="mt-14">
           <BeforeAfter audience="writers" />
@@ -263,7 +289,6 @@ function ForWriters() {
 
       <Section>
         <SectionHeading
-          eyebrow="Writer benefits"
           title="What you get when the platform takes responsibility"
         />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -282,20 +307,18 @@ function ForWriters() {
         </div>
       </Section>
 
-      <Section tone="surface" id="become-a-writer">
+      <Section tone="surface" id="become-a-expert">
         <SectionHeading
-          eyebrow="Becoming a writer"
-          title="How to join Academic Hub as a writer"
-          description="Onboarding is a defined sequence with a named owner at every stage — you always know who holds the next action and what the decision was."
+          title="How to join ScholarDesk as an expert"
+          description="Onboarding is a defined sequence with a named owner at every stage, so you always know who holds the next action and what the decision was."
         />
         <div className="mt-14">
-          <WriterOnboardingFlow />
+          <ExpertOnboardingFlow />
         </div>
       </Section>
 
       <Section>
         <SectionHeading
-          eyebrow="Once you are active"
           title="From your first match to your first payout"
         />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -322,9 +345,8 @@ function ForWriters() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
-            eyebrow="What we expect"
             title="The standards that make the guarantees possible"
-            description="We can promise clients accountability only because writers on the platform hold to a consistent standard. These are the terms of working with us."
+            description="We can promise customers accountability only because experts on the platform hold to a consistent standard. These are the terms of working with us."
           />
           <ul className="space-y-4">
             {expectations.map((e) => (
@@ -342,7 +364,7 @@ function ForWriters() {
 
       <Section>
 
-        <SectionHeading eyebrow="FAQ" title="What writers ask before applying" />
+        <SectionHeading title="What experts ask before applying" />
         <div className="mx-auto mt-12 max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((f, i) => (
@@ -362,7 +384,7 @@ function ForWriters() {
       <CTASection
         title="Apply once. Get matched to work worth doing."
         description="Verification takes a short application, a credential check and one sample assessment."
-        primaryLabel="Apply as a writer"
+        primaryLabel="Apply as an expert"
         primaryHref={registerUrl("writer")}
         secondary={{ label: "Read the full process", to: "/how-it-works" }}
       />

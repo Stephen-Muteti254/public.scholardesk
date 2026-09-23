@@ -9,45 +9,58 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-const steps = [
-  {
-    n: "01",
-    title: "Client submits the task",
-    icon: ClipboardList,
-    actor: "Client",
-    body: "Brief, rubric, deadline, word count and reference style are captured in one structured form.",
-  },
-  {
-    n: "02",
-    title: "We assign a competent writer",
-    icon: UserCheck,
-    actor: "Academic Hub",
-    body: "Matched by verified subject expertise, experience level, past ratings and on-time record — never by who bids first.",
-  },
-  {
-    n: "03",
-    title: "Writer handles the task",
-    icon: PenLine,
-    actor: "Writer",
-    body: "Research and drafting happen in the order workspace, with questions and progress visible to the client.",
-  },
-  {
-    n: "04",
-    title: "Writer submits the work",
-    icon: Upload,
-    actor: "Writer",
-    body: "Final files, sources and an originality report are delivered against the agreed brief.",
-  },
-  {
-    n: "05",
-    title: "Client reviews the work",
-    icon: SearchCheck,
-    actor: "Client",
-    body: "You check the delivery against your rubric inside the platform, before any payment is released.",
-  },
-] as const;
-
-export function ProcessFlow() {
+export function ProcessFlow({
+  audience = "customers",
+}: {
+  audience?: "customers" | "students" | "professionals";
+}) {
+  const person =
+    audience === "students" ? "Student" : audience === "professionals" ? "Professional" : "Customer";
+  const reviewTarget =
+    audience === "students"
+      ? "rubric and instructions"
+      : audience === "professionals"
+        ? "brief and intended outcome"
+        : "rubric";
+  const steps = [
+    {
+      n: "01",
+      title: `${person} submits the task`,
+      icon: ClipboardList,
+      actor: person,
+       body: audience === "professionals"
+         ? "Purpose, audience, source material, format and deadline are captured in one structured form."
+         : "Brief, rubric, deadline, word count and reference style are captured in one structured form.",
+    },
+    {
+      n: "02",
+      title: "We assign a competent expert",
+      icon: UserCheck,
+      actor: "ScholarDesk",
+      body: "Matched by verified subject expertise, experience level, past ratings and on-time record, never by who bids first.",
+    },
+    {
+      n: "03",
+      title: "Expert handles the task",
+      icon: PenLine,
+      actor: "Expert",
+      body: `Research and drafting happen in the order workspace, with questions and progress visible to the ${person.toLowerCase()}.`,
+    },
+    {
+      n: "04",
+      title: "Expert submits the work",
+      icon: Upload,
+      actor: "Expert",
+      body: "Final files, sources and an originality report are delivered against the agreed brief.",
+    },
+    {
+      n: "05",
+      title: `${person} reviews the work`,
+      icon: SearchCheck,
+      actor: person,
+      body: `You check the delivery against your ${reviewTarget} inside the platform, before any payment is released.`,
+    },
+  ];
   return (
     <div className="space-y-8">
       {/* Linear steps */}
@@ -76,12 +89,12 @@ export function ProcessFlow() {
       <div className="rounded-2xl border border-border bg-surface p-6 lg:p-8">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Step 06 — Decision point
+            Step 06: Decision point
           </p>
-          <h3 className="mt-1 text-xl font-semibold">Is the client satisfied?</h3>
+          <h3 className="mt-1 text-xl font-semibold">Is the {person.toLowerCase()} satisfied?</h3>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground">
             The order cannot close on its own. Nothing is finalised, and no payment is released,
-            until the client makes this call.
+             until {audience === "customers" ? "the customer makes" : "you make"} this call.
           </p>
         </div>
 
@@ -94,7 +107,7 @@ export function ProcessFlow() {
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-success">
-                  Yes — satisfied
+                  Yes, satisfied
                 </p>
                 <p className="text-base font-semibold">Order marked complete</p>
               </div>
@@ -102,11 +115,11 @@ export function ProcessFlow() {
             <div className="mt-5 space-y-3">
               <FlowLine
                 icon={BadgeCheck}
-                text="Client marks the order as completed in the workspace."
+                text={`${person} marks the order as completed in the workspace.`}
               />
               <FlowLine
                 icon={BadgeCheck}
-                text="Payment is released to the writer and the record is archived."
+                text="Payment is released to the expert and the record is archived."
               />
               <FlowLine
                 icon={BadgeCheck}
@@ -115,7 +128,7 @@ export function ProcessFlow() {
             </div>
           </div>
 
-          {/* No path — loop */}
+          {/* No path: loop */}
           <div className="rounded-xl border border-warning/40 bg-background p-6">
             <div className="flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-warning/15 text-warning-foreground">
@@ -123,7 +136,7 @@ export function ProcessFlow() {
               </span>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  No — not yet
+                  Not yet
                 </p>
                 <p className="text-base font-semibold">Revision requested</p>
               </div>
@@ -131,19 +144,19 @@ export function ProcessFlow() {
             <div className="mt-5 space-y-3">
               <FlowLine
                 icon={RotateCcw}
-                text="Client logs precisely what needs to change, against the original brief."
+                text={`${person} logs precisely what needs to change, against the original brief.`}
               />
               <FlowLine
                 icon={RotateCcw}
-                text="The task returns to step 03 — the same writer reworks and resubmits."
+                text="The task returns to step 03; the same expert reworks and resubmits."
               />
               <FlowLine
                 icon={RotateCcw}
-                text="The loop repeats until the client is satisfied. Free of charge, within scope."
+                text={`The loop repeats until the ${person.toLowerCase()} is satisfied. Free of charge, within scope.`}
               />
             </div>
             <p className="mt-5 rounded-lg bg-surface-strong px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-              Loop back to <span className="font-semibold text-foreground">Step 03 — Writer
+              Loop back to <span className="font-semibold text-foreground">Step 03: Expert
               handles task</span>. Persistent mismatches are escalated to our quality team, who can
               reassign the task to another expert at no extra cost.
             </p>

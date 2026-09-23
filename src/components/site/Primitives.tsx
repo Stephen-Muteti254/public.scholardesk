@@ -28,21 +28,11 @@ export function Section({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-      {children}
-    </span>
-  );
-}
-
 export function SectionHeading({
-  eyebrow,
   title,
   description,
   align = "center",
 }: {
-  eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
   align?: "center" | "left";
@@ -51,7 +41,6 @@ export function SectionHeading({
     <div
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""} space-y-4`}
     >
-      {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
       <h2 className="text-3xl font-bold leading-tight lg:text-4xl">{title}</h2>
       {description ? (
         <p className="text-lg leading-relaxed text-muted-foreground">{description}</p>
@@ -71,7 +60,7 @@ export function CTASection({
   description: string;
   primaryLabel?: string;
   primaryHref?: string;
-  secondary?: { label: string; to: "/for-clients" | "/for-writers" | "/services" | "/contact" | "/how-it-works" };
+  secondary?: { label: string; to: "/for-students" | "/for-professionals" | "/for-writers" | "/services" | "/contact" | "/how-it-works" };
 }) {
   return (
     <section className="bg-brand py-20 text-primary-foreground lg:py-24">

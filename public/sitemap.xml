@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://academichubpro.com/</loc>
+    <loc>https://scholardesk.pro/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/for-clients</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://scholardesk.pro/services</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/for-writers</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://scholardesk.pro/for-clients</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/services</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://scholardesk.pro/for-writers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/how-it-works</loc>
+    <loc>https://scholardesk.pro/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/contact</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://scholardesk.pro/contact</loc>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/privacy</loc>
+    <loc>https://scholardesk.pro/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://academichubpro.com/terms</loc>
+    <loc>https://scholardesk.pro/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

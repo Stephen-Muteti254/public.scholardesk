@@ -1,16 +1,18 @@
 export const PORTALS = {
-  PUBLIC: "https://academichubpro.com",
-  AUTH: "https://auth.academichubpro.com",
-  WRITER: "https://writer.academichubpro.com",
-  CLIENT: "https://client.academichubpro.com",
-  ADMIN: "https://admin.academichubpro.com",
+  PUBLIC: "https://scholardesk.pro",
+  AUTH: "https://auth.scholardesk.pro",
+  WRITER: "https://writer.scholardesk.pro",
+  CLIENT: "https://client.scholardesk.pro",
+  ADMIN: "https://admin.scholardesk.pro",
+  ASSESSDESK: "https://assessdesk.scholardesk.pro",
 } as const;
 
 export const SITE = {
-  name: "Academic Hub",
-  domain: "https://academichubpro.com",
-  email: "support@academichubpro.com",
+  name: "ScholarDesk",
+  domain: "https://scholardesk.pro",
+  email: "support@scholardesk.pro",
   address: "575 5th Ave Fl 14, New York City, New York",
+  ogImage: "https://scholardesk.pro/brand/og-image.png",
 } as const;
 
 export const registerUrl = (role?: "client" | "writer") =>

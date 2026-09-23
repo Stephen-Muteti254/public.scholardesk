@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://academichubpro.com/sitemap.xml
+Sitemap: https://scholardesk.pro/sitemap.xml

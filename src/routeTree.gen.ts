@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ForClientsRouteImport } from './routes/for-clients'
+import { Route as ForProfessionalsRouteImport } from './routes/for-professionals'
+import { Route as ForStudentsRouteImport } from './routes/for-students'
 import { Route as ForWritersRouteImport } from './routes/for-writers'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -37,6 +39,16 @@ const ContactRoute = ContactRouteImport.update({
 const ForClientsRoute = ForClientsRouteImport.update({
   id: '/for-clients',
   path: '/for-clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForProfessionalsRoute = ForProfessionalsRouteImport.update({
+  id: '/for-professionals',
+  path: '/for-professionals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForStudentsRoute = ForStudentsRouteImport.update({
+  id: '/for-students',
+  path: '/for-students',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForWritersRoute = ForWritersRouteImport.update({
@@ -70,6 +82,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/for-clients': typeof ForClientsRoute
+  '/for-professionals': typeof ForProfessionalsRoute
+  '/for-students': typeof ForStudentsRoute
   '/for-writers': typeof ForWritersRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -81,6 +95,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/for-clients': typeof ForClientsRoute
+  '/for-professionals': typeof ForProfessionalsRoute
+  '/for-students': typeof ForStudentsRoute
   '/for-writers': typeof ForWritersRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -93,6 +109,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/for-clients': typeof ForClientsRoute
+  '/for-professionals': typeof ForProfessionalsRoute
+  '/for-students': typeof ForStudentsRoute
   '/for-writers': typeof ForWritersRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -106,6 +124,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/for-clients'
+    | '/for-professionals'
+    | '/for-students'
     | '/for-writers'
     | '/how-it-works'
     | '/privacy'
@@ -117,6 +137,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/for-clients'
+    | '/for-professionals'
+    | '/for-students'
     | '/for-writers'
     | '/how-it-works'
     | '/privacy'
@@ -128,6 +150,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/for-clients'
+    | '/for-professionals'
+    | '/for-students'
     | '/for-writers'
     | '/how-it-works'
     | '/privacy'
@@ -140,6 +164,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ForClientsRoute: typeof ForClientsRoute
+  ForProfessionalsRoute: typeof ForProfessionalsRoute
+  ForStudentsRoute: typeof ForStudentsRoute
   ForWritersRoute: typeof ForWritersRoute
   HowItWorksRoute: typeof HowItWorksRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -175,6 +201,20 @@ declare module '@tanstack/react-router' {
       path: '/for-clients'
       fullPath: '/for-clients'
       preLoaderRoute: typeof ForClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-professionals': {
+      id: '/for-professionals'
+      path: '/for-professionals'
+      fullPath: '/for-professionals'
+      preLoaderRoute: typeof ForProfessionalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-students': {
+      id: '/for-students'
+      path: '/for-students'
+      fullPath: '/for-students'
+      preLoaderRoute: typeof ForStudentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/for-writers': {
@@ -220,6 +260,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ForClientsRoute: ForClientsRoute,
+  ForProfessionalsRoute: ForProfessionalsRoute,
+  ForStudentsRoute: ForStudentsRoute,
   ForWritersRoute: ForWritersRoute,
   HowItWorksRoute: HowItWorksRoute,
   PrivacyRoute: PrivacyRoute,

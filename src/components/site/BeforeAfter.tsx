@@ -21,13 +21,13 @@ type Row = {
   afterIcon: typeof CheckCircle2;
 };
 
-const clientRows: Row[] = [
+const studentRows: Row[] = [
   {
     topic: "Finding help",
     before:
       "You post in a group chat or marketplace and hope whoever replies first can actually handle your subject.",
     after:
-      "Your task is routed to a writer who is vetted in that exact discipline, with a track record you can see.",
+      "Your task is routed to an expert who is vetted in that exact discipline, with a track record you can see.",
     beforeIcon: ShuffleIcon,
     afterIcon: Target,
   },
@@ -52,7 +52,7 @@ const clientRows: Row[] = [
   {
     topic: "Deadlines",
     before:
-      "You chase for updates and discover a problem hours before submission — too late to fix it.",
+      "You chase for updates and discover a problem hours before submission, too late to fix it.",
     after:
       "Milestone tracking and draft checkpoints surface risk early, while there is still time to act.",
     beforeIcon: Clock3,
@@ -69,20 +69,68 @@ const clientRows: Row[] = [
   },
 ];
 
-const writerRows: Row[] = [
+const professionalRows: Row[] = [
+  {
+    topic: "Finding help",
+    before:
+      "You post in a group chat or freelance marketplace and hope the first available person understands your field and deliverable.",
+    after:
+      "Your brief is routed to an expert vetted in the relevant discipline, with a delivery record you can review.",
+    beforeIcon: ShuffleIcon,
+    afterIcon: Target,
+  },
+  {
+    topic: "Trust & payment",
+    before:
+      "Money is sent up front to a stranger. If the work never arrives or misses the brief, there is nobody to escalate to.",
+    after:
+      "Funds are held until you review the work. You release payment only once you mark the order complete.",
+    beforeIcon: WalletCards,
+    afterIcon: WalletMinimal,
+  },
+  {
+    topic: "Communication",
+    before:
+      "Source files, decisions and feedback are scattered across email, messaging apps and document versions.",
+    after:
+      "One order thread holds every requirement, file, revision and message, timestamped and searchable.",
+    beforeIcon: MessageSquareX,
+    afterIcon: MessagesSquare,
+  },
+  {
+    topic: "Deadlines",
+    before:
+      "You chase for updates and discover a problem just before a meeting, application or delivery deadline.",
+    after:
+      "Milestone tracking and draft checkpoints surface risk early, while there is still time to act.",
+    beforeIcon: Clock3,
+    afterIcon: Clock3,
+  },
+  {
+    topic: "Quality control",
+    before:
+      "Whatever arrives is what you get. Asking for a correction depends on goodwill rather than an agreed process.",
+    after:
+      "Unlimited structured revisions within scope, with quality checks before delivery and escalation when needed.",
+    beforeIcon: ShieldAlert,
+    afterIcon: ShieldCheck,
+  },
+];
+
+const expertRows: Row[] = [
   {
     topic: "Finding work",
     before:
       "Endless scrolling through mismatched listings and unpaid sample tests just to get noticed.",
     after:
-      "Relevant tasks are matched to your verified expertise, so you spend time writing, not hunting.",
+      "Relevant tasks are matched to your verified expertise, so you spend time solving, not searching.",
     beforeIcon: ShuffleIcon,
     afterIcon: Target,
   },
   {
     topic: "Getting paid",
     before:
-      "Clients disappear after delivery, or payments arrive weeks late with unexplained deductions.",
+      "Customers disappear after delivery, or payments arrive weeks late with unexplained deductions.",
     after:
       "Payment is secured before you start and released on a predictable schedule after approval.",
     beforeIcon: WalletCards,
@@ -100,9 +148,9 @@ const writerRows: Row[] = [
   {
     topic: "Reputation",
     before:
-      "Years of good work vanish when a platform closes or a client stops answering. You start over.",
+      "Years of good work vanish when a platform closes or a customer stops answering. You start over.",
     after:
-      "A portable performance record — ratings, on-time rate, specialisms — that raises the work you are offered.",
+      "A portable performance record (ratings, on-time rate, specialisms) that raises the work you are offered.",
     beforeIcon: AlertTriangle,
     afterIcon: CheckCircle2,
   },
@@ -143,7 +191,7 @@ function Column({
         </span>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            {isBefore ? "Before Academic Hub" : "With Academic Hub"}
+            {isBefore ? "Before ScholarDesk" : "With ScholarDesk"}
           </p>
           <p className="text-lg font-semibold">
             {isBefore ? "Informal, risky, unaccountable" : "Structured, verified, accountable"}
@@ -179,8 +227,12 @@ function Column({
   );
 }
 
-export function BeforeAfter({ audience }: { audience: "clients" | "writers" }) {
-  const rows = audience === "clients" ? clientRows : writerRows;
+export function BeforeAfter({ audience }: { audience: "clients" | "students" | "professionals" | "writers" }) {
+  const rows = audience === "students" || audience === "clients"
+    ? studentRows
+    : audience === "professionals"
+      ? professionalRows
+      : expertRows;
 
   return (
     <div className="relative grid items-start gap-6 lg:grid-cols-[1fr_auto_1fr]">

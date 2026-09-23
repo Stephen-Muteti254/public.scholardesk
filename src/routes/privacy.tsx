@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SITE } from "@/config/site";
 
-const title = "Privacy Policy | Academic Hub";
+const title = "Privacy Policy | ScholarDesk";
 const description =
-  "How Academic Hub collects, uses, stores and protects the personal information of clients and writers on our academic support platform.";
+  "How ScholarDesk collects, uses, stores and protects the personal information of customers and experts on our academic support platform.";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -14,8 +15,11 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/privacy" },
+      { property: "og:image", content: SITE.ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { name: "twitter:image", content: SITE.ogImage },
     ],
     links: [{ rel: "canonical", href: "/privacy" }],
   }),
@@ -39,7 +43,7 @@ const sections = [
     p: "We use the information we collect to:",
     list: [
       "Provide, maintain and improve the platform",
-      "Match tasks with appropriately qualified writers",
+      "Match tasks with appropriately qualified experts",
       "Process transactions and send related information",
       "Send technical notices and support messages",
       "Protect against fraudulent, abusive or illegal activity",
@@ -48,7 +52,7 @@ const sections = [
   },
   {
     h: "3. Information sharing",
-    p: "We do not sell your personal information. Client identities are not shared with writers. We may share information only:",
+    p: "We do not sell your personal information. Customer identities are not shared with experts. We may share information only:",
     list: [
       "With your consent or at your direction",
       "With service providers who assist in our operations",
@@ -81,7 +85,7 @@ const sections = [
   },
   {
     h: "8. Contact us",
-    p: "Questions about this policy can be sent to support@academichubpro.com, or by post to 575 5th Ave Fl 14, New York City, New York.",
+    p: "Questions about this policy can be sent to support@scholardesk.pro, or by post to 575 5th Ave Fl 14, New York City, New York.",
   },
 ];
 

@@ -1,32 +1,54 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Clock } from "lucide-react";
-import logo from "@/assets/logo/logo-light.svg";
-import { SITE, loginUrl, registerUrl } from "@/config/site";
+import { Logo } from "@/components/site/Logo";
+import { PORTALS, SITE, loginUrl, registerUrl } from "@/config/site";
+import { SERVICE_AREAS } from "@/config/services";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <img src={logo} alt="Academic Hub" className="h-8 w-auto" width={140} height={35} />
+            <Logo className="h-9" />
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-              A managed academic support platform that matches every task with a vetted,
-              subject-matched writer and keeps clients in control until the work is right.
+              A managed learning and professional support platform connecting students and professionals with vetted subject experts.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">Services</h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              {SERVICE_AREAS.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    to="/services"
+                    hash={area.slug}
+                    className="text-muted-foreground hover:text-primary"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold text-foreground">Platform</h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <Link to="/for-clients" className="text-muted-foreground hover:text-primary">
-                  For Clients
+                <Link to="/for-students" className="text-muted-foreground hover:text-primary">
+                  For Students
+                </Link>
+              </li>
+              <li>
+                <Link to="/for-professionals" className="text-muted-foreground hover:text-primary">
+                  For Professionals
                 </Link>
               </li>
               <li>
                 <Link to="/for-writers" className="text-muted-foreground hover:text-primary">
-                  For Writers
+                  For Experts
                 </Link>
               </li>
               <li>
@@ -38,6 +60,11 @@ export function SiteFooter() {
                 <Link to="/how-it-works" className="text-muted-foreground hover:text-primary">
                   How it works
                 </Link>
+              </li>
+              <li>
+                <a href={PORTALS.ASSESSDESK} className="font-semibold text-primary hover:text-primary-deep">
+                  AssessDesk <span className="ml-1 text-xs uppercase">New</span>
+                </a>
               </li>
             </ul>
           </div>
