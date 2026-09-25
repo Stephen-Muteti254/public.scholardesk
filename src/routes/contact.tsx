@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Section } from "@/components/site/Primitives";
 import { SITE } from "@/config/site";
+import { EditorialImage } from "@/components/site/EditorialImage";
 
 const title = "Contact ScholarDesk | Talk to Our Support Team";
 const description =
@@ -64,16 +65,28 @@ function Contact() {
 
   return (
     <>
-      <section className="bg-hero">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="max-w-3xl space-y-5">
-            <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
-              Talk to a person before you commit
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Whether you are weighing up your first order or applying as an expert, our team
-              will answer straight, including when we are not the right fit.
-            </p>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-surface">
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(380px,.82fr)]">
+            <div className="max-w-2xl space-y-5">
+              <h1 className="text-4xl font-bold leading-[1.1] lg:text-5xl">
+                Talk to a person before you commit
+              </h1>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Whether you are weighing up your first order or applying as an expert, our team
+                will answer straight, including when we are not the right fit.
+              </p>
+            </div>
+            <EditorialImage
+              src="/images/contact-support.jpg"
+              alt="A support specialist wearing a headset at her desk, working through contact records on a screen"
+              eyebrow="24/7 live support"
+              caption="A person reads your brief, and a person replies — before and during every order."
+              eager
+              className="w-full max-w-[420px] justify-self-end"
+              imageClassName="object-top"
+            />
           </div>
         </div>
       </section>

@@ -216,7 +216,7 @@ function Home() {
                 <span className="text-primary-foreground">matched, tracked and accountable</span>
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-primary-foreground/85">
-                 ScholarDesk gives students and professionals one managed place for academic support, professional documents, research, exam materials and assessment preparation. Every task is matched to a vetted expert, tracked clearly and reviewed before payment is released.
+                 ScholarDesk gives students and professionals one managed place for academic support, professional documents, research, exam materials, interviews, assessments, tests, and exams. Every task is matched to a vetted expert, tracked clearly and reviewed before payment is released.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" asChild>

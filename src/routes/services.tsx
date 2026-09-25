@@ -120,7 +120,7 @@ function Services() {
                 Five areas we deal with, <span className="text-primary">one standard of delivery</span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                Academic work, professional documents and assessment preparation follow the same route:
+                Academic work, professional documents and taking assessments, interviews and exams follow the same route:
                 a vetted expert with relevant expertise, funds held until you approve, and revisions
                 until the delivery meets the agreed brief.
               </p>

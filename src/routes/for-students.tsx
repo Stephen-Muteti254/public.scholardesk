@@ -61,7 +61,7 @@ function ForStudents() {
     audience="students"
     eyebrow="For Students"
     headline={<>Support for every stage of <span className="text-primary">your education</span>.</>}
-    introduction="From high school and TVET to university and postgraduate study, ScholarDesk connects you with a vetted subject expert for assignments, classes, research, revision and assessment preparation."
+    introduction="From high school and TVET to university and postgraduate study, ScholarDesk connects you with a vetted subject expert for assignments, classes, research, revision and taking assessments, exams and tests."
     primaryLabel="Submit your student task"
     heroImage="/images/students-collaborating.jpg"
     heroImageAlt="University students collaborating around laptops in a lecture room"

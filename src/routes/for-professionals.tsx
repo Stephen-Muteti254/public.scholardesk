@@ -61,7 +61,7 @@ function ForProfessionals() {
     audience="professionals"
     eyebrow="For Professionals"
     headline={<>Specialist support for work that must be <span className="text-primary">clear, credible and complete</span>.</>}
-    introduction="ScholarDesk matches working professionals, job seekers, founders and researchers with vetted experts for documents, analysis, career materials and high-stakes preparation."
+    introduction="ScholarDesk matches working professionals, job seekers, founders and researchers with vetted experts for documents, analysis, career materials and taking interviews, tests or assessments."
     primaryLabel="Submit a professional task"
     heroImage="/images/client-at-work.jpg"
     heroImageAlt="A professional reviewing notes beside a laptop in a bright workspace"
