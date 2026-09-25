@@ -211,7 +211,7 @@ function Home() {
               {/*<p className="text-sm font-semibold uppercase tracking-widest text-primary-foreground/80">
                 ScholarDesk for students and professionals
               </p>*/}
-              <h1 className="text-4xl font-bold leading-[1.08] lg:text-6xl">
+              <h1 className="max-w-[18ch] text-4xl font-semibold leading-[1.16] tracking-normal lg:text-6xl lg:leading-[1.12]">
                 Expert support that is{" "}
                 <span className="text-primary-foreground">matched, tracked and accountable</span>
               </h1>
@@ -219,12 +219,12 @@ function Home() {
                  ScholarDesk gives students and professionals one managed place for academic support, professional documents, research, exam materials, interviews, assessments, tests, and exams. Every task is matched to a vetted expert, tracked clearly and reviewed before payment is released.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="bg-primary shadow-strong ring-1 ring-primary-foreground/25 hover:bg-primary/90">
                   <a href={registerUrl("client")}>
                     Get expert support <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="border-primary-foreground/40 bg-background/10 text-primary-foreground hover:bg-background/20 hover:text-primary-foreground">
+                <Button size="lg" variant="outline" asChild className="border-primary-foreground/70 bg-transparent text-primary-foreground shadow-none hover:bg-primary-foreground/10 hover:text-primary-foreground">
                   <a href={registerUrl("writer")}>Join as an expert</a>
                 </Button>
               </div>

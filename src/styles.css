@@ -206,11 +206,17 @@
 
 .home-cinematic-image {
   animation: cinematic-drift 22s ease-in-out infinite;
+  filter: brightness(0.82) saturate(0.82) blur(1px);
   will-change: transform;
 }
 
 .home-cinematic-overlay {
-  background: color-mix(in oklab, var(--primary-deep) 60%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--primary-deep) 82%, transparent) 0%,
+    color-mix(in oklab, var(--primary-deep) 72%, transparent) 58%,
+    color-mix(in oklab, var(--primary-deep) 62%, transparent) 100%
+  );
 }
 
 
@@ -220,7 +226,7 @@
 
 @media (max-width: 767px) {
   .home-cinematic-overlay {
-    background: color-mix(in oklab, var(--primary-deep) 70%, transparent);
+    background: color-mix(in oklab, var(--primary-deep) 78%, transparent);
   }
 }
 
