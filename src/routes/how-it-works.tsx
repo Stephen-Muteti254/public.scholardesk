@@ -109,7 +109,7 @@ function HowItWorks() {
     <>
       <section className="relative overflow-hidden bg-surface">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(380px,.82fr)]">
+          <div className="grid items-top gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(380px,.82fr)]">
             <div className="space-y-6">
               <h1 className="text-4xl font-bold leading-[1.1] lg:text-5xl">
                 Every task follows the same{" "}

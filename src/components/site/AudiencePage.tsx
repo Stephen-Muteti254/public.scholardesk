@@ -96,7 +96,7 @@ export function AudiencePage({
     <>
       <section className="relative overflow-hidden bg-surface">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div className="grid items-top gap-14 lg:grid-cols-2">
             <div className="space-y-7">
               {/*<p className="text-sm font-semibold uppercase text-primary">{eyebrow}</p>*/}
               <h1 className="text-4xl font-bold leading-[1.1] lg:text-5xl">{headline}</h1>
